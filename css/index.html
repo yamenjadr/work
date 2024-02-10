@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information Form</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #37474f, #546e7a);
+    }
+
+    form {
+      background-color: #eceff1;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #263238;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #455a64;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #90a4ae;
+      border-radius: 5px;
+      background-color:white;
+      color: #455a64;
+    }
+
+    input[type="submit"] {
+      background-color: #00c853;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #64dd17;
+    }
+
+    /* Added styling for the "Forgot Password" link */
+    .forgot-password {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="userForm" action="page2.html" method="post">
+  <h2>User Information Form</h2>
+
+  <label for="fullName">Full Name:</label>
+  <input type="text" id="fullName" name="fullName" required>
+
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="tel" id="phoneNumber" name="phoneNumber">
+  <small>Format: 1234567890</small>
+
+  <label for="id">ID:</label>
+  <input type="text" id="id" name="id" required>
+
+  <label for="birthdate">Birthdate:</label>
+  <input type="date" id="birthdate" name="birthdate" required>
+
+  <label for="gender">Gender:</label>
+  <select id="gender" name="gender" required>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <input type="submit" value="Submit">
+
+
+  <a href="  https://localhost:63343/work/css/forget.html?_ijt=pp6so212qqtmvfeqsr1j54gqcm&_ij_reload=RELOAD_ON_SAVE" class="forgot-password">Forgot Password?</a>
+
+</form>
+
+<script>
+  document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Save field values in localStorage when Submit is clicked
+    localStorage.setItem('fullName', document.getElementById('fullName').value);
+    localStorage.setItem('phoneNumber', document.getElementById('phoneNumber').value);
+    localStorage.setItem('id', document.getElementById('id').value);
+    localStorage.setItem('birthdate', document.getElementById('birthdate').value);
+    localStorage.setItem('gender', document.getElementById('gender').value);
+
+
+    window.location.href = 'page2.html';
+  });
+</script>
+
+</body>
+</html>
